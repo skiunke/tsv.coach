@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSV.coach</title>
+    <script src="https://kit.fontawesome.com/5cb1178e57.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+:root {
+    --primary: #3c3c4a;
+    --secondary: #474057;
+    --accent: #ec4899;
+    --dark: #0f172a;
+    --light: #f8fafc;
+    --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+    background-color: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+.navbar {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 1rem 2rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.navbar h1 {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.container {
+    padding-top: 6rem;
+}
+
+.hero {
+    text-align: center;
+    padding: 8rem 2rem 6rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: var(--gradient);
+    opacity: 0.03;
+    transform: rotate(-15deg);
+    z-index: -1;
+}
+
+.hero h2 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    margin: 0 auto 2rem;
+    max-width: 900px;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: #64748b;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+
+.cta-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 6rem;
+}
+
+.cta-button {
+    background: var(--gradient);
+    color: white;
+    padding: 1.25rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 30px rgba(99, 102, 241, 0.2);
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 40px rgba(99, 102, 241, 0.3);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.feature-card {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient);
+    border-radius: 1rem;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.75rem;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--dark);
+}
+
+.feature-card p {
+    color: #64748b;
+    font-size: 1rem;
+}
+
+.video-container {
+    max-width: 1000px;
+    margin: 4rem auto;
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+.video-container:hover {
+    transform: translateY(-5px);
+}
+
+.testimonial-section {
+    background: var(--gradient);
+    color: white;
+    padding: 6rem 2rem;
+    text-align: center;
+}
+
+.testimonial-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.testimonial-text {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.testimonial-author {
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.profile-section {
+    margin-top: 6rem;
+    padding: 4rem 2rem;
+    border-radius: 2rem;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.profile-image-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%; /* Creates square aspect ratio */
+    border-radius: 1.5rem;
+    overflow: hidden;
+}
+
+.profile-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%; /* Adjust this to show your face */
+    transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.03);
+}
+
+.profile-content {
+    padding-right: 2rem;
+}
+
+.profile-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.profile-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #64748b;
+    margin-bottom: 2rem;
+}
+
+.youtube-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 2rem;
+    background: #FF0000;
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.2);
+}
+
+.youtube-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.3);
+    background: #cc0000;
+}
+
+
+@media (max-width: 768px) {
+    .profile-grid {
+        gap: 1.5rem; /* Reduced mobile gap */
+        margin-top: -2rem; /* Pull section up */
+    }
+    
+    .profile-image-container {
+        padding-bottom: 90%; /* Less vertical space for image */
+        margin: 0 auto; /* Center the image */
+        max-width: 400px; /* Prevent image overflow */
+    }
+    
+    .profile-content {
+        padding: 0 1rem; /* Add side padding */
+    }
+    
+    .profile-title {
+        margin-bottom: 1rem; /* Reduced spacing */
+        font-size: 1.8rem !important; /* Smaller font */
+    }
+    
+    .profile-text {
+        margin-bottom: 1.5rem; /* Reduced spacing */
+        font-size: 1rem; /* Better mobile size */
+    }
+    
+    .navbar {
+        padding: 0.75rem 1rem; /* Tighter padding */
+    }
+    
+    .logo {
+        height: 30px; /* Smaller logo */
+        max-width: 150px;
+    }
+
+@media (max-width: 768px) {
+   
+    
+    .profile-content {
+        padding-right: 0;
+        text-align: center;
+    }
+    
+    .profile-title {
+        font-size: 2rem;
+    }
+    
+    .youtube-button {
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h2 {
+        font-size: 2.5rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+    
+    .feature-card {
+        padding: 2rem;
+    }
+    
+    .video-container {
+        margin: 2rem 1rem;
+        border-radius: 1rem;
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.floating {
+    animation: float 6s ease-in-out infinite;
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>TSV.coach</h1>
+    </nav>
+
+    <div >
+
+        <section class="hero">
+            <div class="hero-main-content">
+                <h2>Die Zukunft der Vereinsverwaltung ist hier</h2>
+                <p class="hero-subtitle">Eine App gleichermaßen trivial und genial, wie diese Webseite</p>
+                
+                <div class="cta-section">
+    <a href="https://tsv.coach" class="cta-button" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-rocket"></i>
+        Zum TSV.coach
+    </a>
+    <p class="text-sm text-gray-500">Keine Kreditkarte erforderlich · Für immer kostenlos, ohne Werbung und Tracker</p>
+</div>
+            </div>
+
+            <div class="video-container floating">
+    <iframe src="https://www.youtube.com/embed/_mo8T7AzuGU" 
+            style="width:100%;height:600px;border:none;"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+    </iframe>
+</div>
+        
+            <div >
+                <div class="profile-grid">
+                    <div class="profile-image-container">
+                        <img src="images/me.png" alt="Your Name" class="profile-image">
+                    </div>
+                    <div class="profile-content">
+                        <h3 class="profile-title">Über den Gründer</h3>
+                        <p class="profile-text">
+                            Wettkampfanmeldung von überallher und bloß kein Stift und Papier mehr. Ein paar weitere Funktionen wären auch noch praktisch. 
+                            Wie ich diese Ideen in eine App umgesetzt habe, erfährst du auf meinem YouTube Kanal.
+                        </p>
+                        <a href="https://www.youtube.com/watch?v=_mo8T7AzuGU&list=PLtU6ctensTXRzLdasPex7r8bzwtXuzQSH" target="_blank" class="youtube-button">
+                            <i class="fab fa-youtube"></i>
+                            YouTube Kanal besuchen
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+    
+
+        <section class="testimonial-section">
+            <div class="testimonial-content">
+                <p class="testimonial-text">"Alle Rückmeldungen an einem Ort und Notfallkontakte in Griffweite. Ein Traum!"</p>
+                <p class="testimonial-author">- Andreas E., Sportvorstand</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Add scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.feature-card, .video-container').forEach((el) => {
+            el.style.opacity = 0;
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
