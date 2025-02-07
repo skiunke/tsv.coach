@@ -6,446 +6,342 @@
     <title>TSV.coach</title>
     <script src="https://kit.fontawesome.com/5cb1178e57.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-:root {
-    --primary: #3c3c4a;
-    --secondary: #474057;
-    --accent: #ec4899;
-    --dark: #0f172a;
-    --light: #f8fafc;
-    --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', system-ui, sans-serif;
-}
-
-body {
-    background-color: var(--light);
-    color: var(--dark);
-    line-height: 1.6;
-}
-
-.navbar {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 1rem 2rem;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
-.navbar h1 {
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-size: 1.75rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-}
-
-.container {
-    padding-top: 6rem;
-}
-
-.hero {
-    text-align: center;
-    padding: 8rem 2rem 6rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: var(--gradient);
-    opacity: 0.03;
-    transform: rotate(-15deg);
-    z-index: -1;
-}
-
-.hero h2 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: -1.5px;
-    margin: 0 auto 2rem;
-    max-width: 900px;
-    background: var(--gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.hero-subtitle {
-    font-size: 1.25rem;
-    color: #64748b;
-    max-width: 600px;
-    margin: 0 auto 3rem;
-}
-
-.cta-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 6rem;
-}
-
-.cta-button {
-    background: var(--gradient);
-    color: white;
-    padding: 1.25rem 2.5rem;
-    border-radius: 50px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 30px rgba(99, 102, 241, 0.2);
-    display: inline-flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 40px rgba(99, 102, 241, 0.3);
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 4rem auto;
-    padding: 0 2rem;
-}
-
-.feature-card {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 1.5rem;
-    border: 1px solid rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
-    text-align: center;
-}
-
-.feature-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-}
-
-.feature-icon {
-    width: 80px;
-    height: 80px;
-    background: var(--gradient);
-    border-radius: 1rem;
-    margin: 0 auto 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.75rem;
-}
-
-.feature-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--dark);
-}
-
-.feature-card p {
-    color: #64748b;
-    font-size: 1rem;
-}
-
-.video-container {
-    max-width: 1000px;
-    margin: 4rem auto;
-    border-radius: 2rem;
-    overflow: hidden;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.1);
-    transform: translateY(0);
-    transition: transform 0.3s ease;
-}
-
-.video-container:hover {
-    transform: translateY(-5px);
-}
-
-.testimonial-section {
-    background: var(--gradient);
-    color: white;
-    padding: 6rem 2rem;
-    text-align: center;
-}
-
-.testimonial-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.testimonial-text {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-}
-
-.testimonial-author {
-    font-weight: 600;
-    opacity: 0.9;
-}
-
-.profile-section {
-    margin-top: 6rem;
-    padding: 4rem 2rem;
-    border-radius: 2rem;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-}
-
-.profile-grid {
-    display: grid;
-    grid-template-columns: 300px 1fr;
-    gap: 4rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    align-items: center;
-}
-
-.profile-image-container {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 100%; /* Creates square aspect ratio */
-    border-radius: 1.5rem;
-    overflow: hidden;
-}
-
-.profile-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 30%; /* Adjust this to show your face */
-    transition: transform 0.3s ease;
-}
-
-.profile-image:hover {
-    transform: scale(1.03);
-}
-
-.profile-content {
-    padding-right: 2rem;
-}
-
-.profile-title {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-}
-
-.profile-text {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #64748b;
-    margin-bottom: 2rem;
-}
-
-.youtube-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    padding: 1rem 2rem;
-    background: #FF0000;
-    color: white;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.2);
-}
-
-.youtube-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.3);
-    background: #cc0000;
-}
-
-
-@media (max-width: 768px) {
-    .profile-grid {
-        gap: 1.5rem; /* Reduced mobile gap */
-        margin-top: -2rem; /* Pull section up */
-    }
-    
-    .profile-image-container {
-        padding-bottom: 90%; /* Less vertical space for image */
-        margin: 0 auto; /* Center the image */
-        max-width: 400px; /* Prevent image overflow */
-    }
-    
-    .profile-content {
-        padding: 0 1rem; /* Add side padding */
-    }
-    
-    .profile-title {
-        margin-bottom: 1rem; /* Reduced spacing */
-        font-size: 1.8rem !important; /* Smaller font */
-    }
-    
-    .profile-text {
-        margin-bottom: 1.5rem; /* Reduced spacing */
-        font-size: 1rem; /* Better mobile size */
-    }
-    
-    .navbar {
-        padding: 0.75rem 1rem; /* Tighter padding */
-    }
-    
-    .logo {
-        height: 30px; /* Smaller logo */
-        max-width: 150px;
-    }
-
-@media (max-width: 768px) {
-   
-    
-    .profile-content {
-        padding-right: 0;
-        text-align: center;
-    }
-    
-    .profile-title {
-        font-size: 2rem;
-    }
-    
-    .youtube-button {
-        justify-content: center;
-        width: 100%;
-    }
-}
-
-@media (max-width: 768px) {
-    .hero h2 {
-        font-size: 2.5rem;
-    }
-    
-    .features-grid {
-        grid-template-columns: 1fr;
-        padding: 0 1rem;
-    }
-    
-    .feature-card {
-        padding: 2rem;
-    }
-    
-    .video-container {
-        margin: 2rem 1rem;
-        border-radius: 1rem;
-    }
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-}
-
-.floating {
-    animation: float 6s ease-in-out infinite;
-}
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <h1>TSV.coach</h1>
-    </nav>
 
-    <div >
+<header class="hero-section" id="hero">
 
-        <section class="hero">
-            <div class="hero-main-content">
-                <h2>Die Zukunft der Vereinsverwaltung ist hier</h2>
-                <p class="hero-subtitle">Eine App für die digital Verwaltung von Sportlern. Ohne viel Schnick - Schnack, aber trotzdem verdammt gut.</p>
-                
-                <div class="cta-section">
-    <a href="https://tsv.coach" class="cta-button" target="_blank" rel="noopener noreferrer">
-        <i class="fas fa-rocket"></i>
-        Zum TSV.coach
-    </a>
-    <p class="text-sm text-gray-500">Keine Kreditkarte erforderlich · Für immer kostenlos, ohne Werbung und Tracker</p>
-</div>
+    <div class="hero-grid">
+        <div class="hero-video-area floating">
+            <div class="hero-video-container">
+                <iframe src="https://www.youtube.com/embed/_mo8T7AzuGU"
+                        class="hero-video"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                </iframe>
             </div>
-
-            <div class="video-container floating">
-    <iframe src="https://www.youtube.com/embed/_mo8T7AzuGU" 
-            style="width:100%;height:600px;border:none;"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-    </iframe>
-</div>
-        
-            <div >
-                <div class="profile-grid">
-                    <div class="profile-image-container">
-                        <img src="images/me.png" alt="Your Name" class="profile-image">
-                    </div>
-                    <div class="profile-content">
-                        <h3 class="profile-title">Über den Gründer</h3>
-                        <p class="profile-text">
-                            Wettkampfanmeldung von überallher und bloß kein Stift und Papier mehr. Ein paar weitere Funktionen wären auch noch praktisch. 
-                            Wie ich diese Ideen in eine App umgesetzt habe, erfährst du auf meinem YouTube Kanal.
-                        </p>
-                        <a href="https://www.youtube.com/watch?v=_mo8T7AzuGU&list=PLtU6ctensTXRzLdasPex7r8bzwtXuzQSH" target="_blank" class="youtube-button">
-                            <i class="fab fa-youtube"></i>
-                            YouTube Kanal besuchen
-                        </a>
-                    </div>
-                </div>
+            <div class="hero-video-buttons">
+                <a href="https://www.youtube.com/watch?v=_mo8T7AzuGU" class="hero-video-button youtube" target="_blank" rel="noopener noreferrer">
+                    <i class="fab fa-youtube"></i> YouTube
+                </a>
+                <a href="https://forum.kiunke.dev" class="hero-video-button docs" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-book-open"></i> Dokumentation
+                </a>
             </div>
-        </section>
-        
-
-    
-
-        <section class="testimonial-section">
-            <div class="testimonial-content">
-                <p class="testimonial-text">"Alle Rückmeldungen an einem Ort und Notfallkontakte in Griffweite. Ein Traum!"</p>
-                <p class="testimonial-author">- Andreas E., Sportvorstand</p>
+        </div>
+        <div class="hero-profile-content">
+            <img src="images/me.png" alt="Your Name" class="hero-image">
+            <div class="hero-name-title">
+                <blockquote class="hero-quote">
+                    "Digitalisierung deines Vereines / Organisation in 2 Minuten mit allen Informationen in einer App."
+                </blockquote>
+                <p class="hero-name">Sebastian Kiunke -  Gründer</p>
+                <img src="images/logo.png" alt="Your Logo" class="hero-logo">
             </div>
-        </section>
+            <section class="cta-section" style="padding: 0;">
+                <a href="https://tsv.coach" class="cta-button" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-rocket"></i>
+                    Direkt zum TSV.coach
+                </a>
+
+            </section>
+        </div>
     </div>
+</header>
 
-    <script>
-        // Add scroll animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
+<section class="intro-section">
+    <h2 class="intro-title">Deine Vereinsverwaltung, einfach & kostenlos.</h2>
+    <p class="intro-description">Mit dem TSV.coach digitalisierst du deinen Verein oder Organisation in 2 Minuten mit allen wichtigen Funktionen die du erwartest.</p>
+</section>
+
+<section class="features-section" id="features">
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-card-icon"><i class="fas fa-users"></i></div>
+            <div class="feature-text-content">
+                <h3>Sportlerverwaltung</h3>
+                <p>Zentrale Mitgliederprofile, digitale Vereinsarbeit.</p>
+            </div>
+
+        </div>
+        <div class="feature-card">
+            <div class="feature-card-icon"><i class="fas fa-calendar-alt"></i></div>
+            <div class="feature-text-content">
+                <h3>Eventanmeldung</h3>
+                <p>Unkomplizierte Anmeldung zu Events.</p>
+            </div>
+
+        </div>
+        <div class="feature-card">
+            <div class="feature-card-icon"><i class="fas fa-comments"></i></div>
+            <div class="feature-text-content">
+                <h3>Feedback-System</h3>
+                <p>Zentrale Rückmeldungen für Trainer & Betreuer.</p>
+            </div>
+
+        </div>
+        <div class="feature-card">
+            <div class="feature-card-icon"><i class="fas fa-exclamation-triangle"></i></div>
+            <div class="feature-text-content">
+                <h3>Notfallmanagement</h3>
+                <p>Schneller Zugriff auf Notfallkontakte.</p>
+            </div>
+
+        </div>
+        <div class="feature-card">
+            <div class="feature-card-icon"><i class="fas fa-file-excel"></i></div>
+            <div class="feature-text-content">
+                <h3>Daten Export</h3>
+                <p>Flexible Datenexport im Excel-Format oder als PDF.</p>
+            </div>
+
+        </div>
+        <div class="feature-card">
+            <div class="feature-card-icon" style="background: red;"><i class="fas fa-hand-holding-heart"></i></div>
+            <div class="feature-text-content">
+                <h3>Kostenlos</h3>
+                <p>Dauerhaft kostenlos für 25 Mitglieder, ohne Werbung und Tracker.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="contact-section" id="contact">
+    <div class="contact-content">
+        <h2 class="contact-title">Fragen? Kontakt aufnehmen!</h2>
+        <p class="contact-text">Du hast Fragen zu TSV.coach oder möchtest mehr erfahren? Schreib uns einfach eine E-Mail. Wir helfen dir gerne weiter!</p>
+        <a href="mailto:your-email@example.com" class="contact-email-link">E-Mail an TSV.coach senden</a>
+    </div>
+</section>
+
+<section class="comparison-section" id="comparison">
+    <h2 class="comparison-section-title">TSV.coach vs. Wettbewerb – Dein Vorteil</h2>
+
+    <div class="comparison-table-container">
+        <table class="comparison-table">
+            <thead>
+            <tr>
+                <th>Feature</th>
+                <th>TSV.coach</th>
+                <th>Konkurrenz (Kostenpflichtig)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><i class="fas fa-users feature-check"></i> Sportlerprofile digital verwalten</td>
+                <td class="feature-check"><i class="fas fa-check" style="color: green;"></i> Kostenlos</td>
+                <td><i class="fas fa-times" style="color: red;"></i> Teure Pakete</td>
+            </tr>
+            <tr>
+                <td><i class="fas fa-calendar-alt feature-check"></i> Eventanmeldung online</td>
+                <td class="feature-check"><i class="fas fa-check" style="color: green;"></i> Kostenlos</td>
+                <td><i class="fas fa-times" style="color: red;"></i> Aufpreis oder Premium</td>
+            </tr>
+            <tr>
+                <td><i class="fas fa-comment-dots feature-check"></i> Zentrales Feedback-Management</td>
+                <td class="feature-check"><i class="fas fa-check" style="color: green;"></i> Kostenlos</td>
+                <td><i class="fas fa-times" style="color: red;"></i> Oft nur Basis-Version</td>
+            </tr>
+            <tr>
+                <td><i class="fas fa-exclamation-triangle feature-check"></i> Notfallmanagement integriert</td>
+                <td class="feature-check"><i class="fas fa-check" style="color: green;"></i> Kostenlos</td>
+                <td><i class="fas fa-question" style="color: orange;"></i> Oft fehlend oder Add-on</td>
+            </tr>
+            <tr>
+                <td><i class="fas fa-file-excel feature-check"></i> Datenexport für Auswertungen</td>
+                <td class="feature-check"><i class="fas fa-check" style="color: green;"></i> Kostenlos</td>
+                <td><i class="fas fa-question" style="color: orange;"></i> Teilweise eingeschränkt</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!--
+<section class="examples-section" id="examples">
+    <h2 class="examples-section-title">Organisationen berichten über ihre Erfahrungen</h2>
+    <p class="examples-section-subtitle">Entdecke anhand von <strong>realen Anwendungsfällen</strong>, wie <strong>Sportvereine, Turnierorganisationen und spezialisierte Gruppen</strong> TSV.coach erfolgreich einsetzen und ihren Alltag erleichtern.</p>
+    <div class="examples-grid">
+        <div class="example-card">
+            <img src="images/logo.png" alt="TSV Unterhaching Logo" class="example-logo clickable-image" data-modal-image="images/logo.png">
+            <h3 class="example-title">Sportverein: TSV Unterhaching</h3>
+            <p class="example-message">"Für den TSV Unterhaching ist TSV.coach unverzichtbar geworden, besonders im <strong>Notfallmanagement</strong>. Die <strong>verlässliche Hinterlegung von Notfallkontakten</strong> gibt uns Sicherheit und optimiert unsere Reaktionszeiten."</p>
+        </div>
+        <div class="example-card">
+            <img src="images/poker.jpg" alt="Poker Turnier Logo" class="example-logo clickable-image" data-modal-image="images/poker.jpg">
+            <h3 class="example-title">Turnierorganisation: Poker Turnier</h3>
+            <p class="example-message">"Poker Turnier Organisationen schätzen an TSV.coach vor allem die <strong>schnelle Teilnehmeranmeldung zu Events</strong> und die Möglichkeit, <strong>automatische Erinnerungen</strong> zu erstellen. Das spart uns enorm Zeit und Aufwand."</p>
+        </div>
+        <div class="example-card">
+            <img src="images/judo-medics-logo-placeholder.png" alt="Judo Medics München Logo" class="example-logo clickable-image" data-modal-image="images/judo-medics-logo-placeholder.png">
+            <h3 class="example-title">Spezialisierte Gruppe: Judo Medics München</h3>
+            <p class="example-message">"Judo Medics München profitiert von TSV.coach durch <strong>automatisierte Newsletter</strong> und die <strong>zentrale Bereitstellung von Dateien</strong> nach Einsätzen. Die <strong>effiziente Kommunikation</strong> mit unseren Mitgliedern ist dadurch deutlich verbessert."</p>
+        </div>
+    </div>
+</section>
+-->
+
+<footer class="link-bar-section" id="links">
+    <div class="link-bar-links">
+        <a href="https://tsv.coach" class="link-bar-link" target="_blank" rel="noopener noreferrer">Zum TSV.coach</a>
+        <a href="https://www.youtube.com/watch?v=_mo8T7AzuGU&list=PLtU6ctensTXRzLdasPex7r8bzwtXuzQSH" class="link-bar-link" target="_blank" rel="noopener noreferrer">YouTube Kanal</a>
+    </div>
+</footer>
+
+<div class="feature-modal-overlay" id="sportlerverwaltung-modal">
+    <div class="feature-modal-content">
+        <button class="modal-close-button" data-modal-id="sportlerverwaltung-modal">&times;</button>
+        <h3 class="modal-feature-title">Sportlerverwaltung</h3>
+        <img src="images/background.png" alt="Sportlerverwaltung Feature" class="modal-feature-image">
+        <p class="modal-feature-description">
+            Verwalte alle deine Sportlerprofile zentral und digital.  Erfasse wichtige Informationen, Dokumente und Fortschritte an einem Ort.  Ideal für Trainer und Betreuer, um den Überblick zu behalten und die Kommunikation zu optimieren.
+        </p>
+    </div>
+</div>
+
+<div class="feature-modal-overlay" id="wettkampfanmeldung-modal">
+    <div class="feature-modal-content">
+        <button class="modal-close-button"  data-modal-id="wettkampfanmeldung-modal">&times;</button>
+        <h3 class="modal-feature-title">Wettkampfanmeldung</h3>
+        <img src="images/feature-wettkampfanmeldung-modal.png" alt="Wettkampfanmeldung Feature" class="modal-feature-image">
+        <p class="modal-feature-description">
+            Vereinfache den Anmeldeprozess für Wettkämpfe. Sportler können sich unkompliziert anmelden, Trainer behalten den Überblick über alle Meldungen. Weniger Papier, weniger Aufwand, mehr Effizienz.
+        </p>
+    </div>
+</div>
+
+<div class="feature-modal-overlay" id="feedback-modal">
+    <div class="feature-modal-content">
+        <button class="modal-close-button" data-modal-id="feedback-modal">&times;</button>
+        <h3 class="modal-feature-title">Feedback-System</h3>
+        <img src="images/feature-feedback-modal.png" alt="Feedback-System Feature" class="modal-feature-image">
+        <p class="modal-feature-description">
+            Ermögliche einen direkten Draht zwischen Sportlern, Trainern und Betreuern durch ein zentralisiertes Feedback-System.  Austausch und Fortschrittsdokumentation leicht gemacht.
+        </p>
+    </div>
+</div>
+
+<div class="feature-modal-overlay" id="notfallmanagement-modal">
+    <div class="feature-modal-content">
+        <button class="modal-close-button" data-modal-id="notfallmanagement-modal">&times;</button>
+        <h3 class="modal-feature-title">Notfallmanagement</h3>
+        <img src="images/feature-notfallmanagement-modal.png" alt="Notfallmanagement Feature" class="modal-feature-image">
+        <p class="modal-feature-description">
+            In Notfällen zählt jede Sekunde.  Mit TSV.coach hast du sofortigen Zugriff auf alle wichtigen Notfallkontakte deiner Sportler.  Sicherheit und schnelle Reaktion in jeder Situation.
+        </p>
+    </div>
+</div>
+
+<div class="feature-modal-overlay" id="datenexport-modal">
+    <div class="feature-modal-content">
+        <button class="modal-close-button" data-modal-id="datenexport-modal">&times;</button>
+        <h3 class="modal-feature-title">Daten Export</h3>
+        <img src="images/feature-datenexport-modal.png" alt="Daten Export Feature" class="modal-feature-image">
+        <p class="modal-feature-description">
+            Behalte die Kontrolle über deine Daten.  Exportiere alle relevanten Informationen im flexiblen Excel-Format oder als PDF für Analysen, Berichte oder die Weiterverarbeitung in anderen Systemen.
+        </p>
+    </div>
+</div>
+
+<div class="feature-modal-overlay" id="kostenlos-modal">
+    <div class="feature-modal-content">
+        <button class="modal-close-button" data-modal-id="kostenlos-modal">&times;</button>
+        <h3 class="modal-feature-title">Kostenlos</h3>
+        <img src="images/feature-kostenlos-modal.png" alt="Kostenlos Feature" class="modal-feature-image">
+        <p class="modal-feature-description">
+            TSV.coach ist und bleibt kostenlos für Vereine.  Wir glauben, dass Vereinsarbeit unterstützt werden sollte, ohne durch Softwarekosten belastet zu werden.  Voller Funktionsumfang, ohne versteckte Kosten.
+        </p>
+    </div>
+</div>
+
+<div class="image-modal-overlay" id="image-modal">
+    <div class="image-modal-content">
+        <button class="image-modal-close-button" id="image-modal-close">&times;</button>
+        <img src="" alt="Expanded Image" class="image-modal-image" id="modal-expanded-image">
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const infoButtons = document.querySelectorAll('.feature-info-button');
+        const modalOverlays = document.querySelectorAll('.feature-modal-overlay');
+        const modalCloseButtons = document.querySelectorAll('.modal-close-button');
+
+        infoButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const modalId = this.dataset.modalId;
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.classList.add('active');
+                    // Prevent scrolling of the body when modal is open
+                    document.body.style.overflow = 'hidden';
                 }
             });
         });
 
-        document.querySelectorAll('.feature-card, .video-container').forEach((el) => {
-            el.style.opacity = 0;
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-            observer.observe(el);
+        modalCloseButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const modalId = this.dataset.modalId;
+                const modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.classList.remove('active');
+                    // Re-enable scrolling of the body
+                    document.body.style.overflow = 'auto';
+                }
+            });
         });
-    </script>
+
+        modalOverlays.forEach(modalOverlay => {
+            modalOverlay.addEventListener('click', function(event) {
+                if (event.target === modalOverlay) { // Close modal if clicked outside content
+                    modalOverlay.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+
+        // === IMAGE MODAL SCRIPT - ADDED TO EXISTING SCRIPT ===
+        const clickableImages = document.querySelectorAll('.clickable-image');
+        const imageModalOverlay = document.getElementById('image-modal');
+        const imageModalContent = document.querySelector('.image-modal-content');
+        const modalExpandedImage = document.getElementById('modal-expanded-image');
+        const imageModalCloseButton = document.getElementById('image-modal-close');
+
+        clickableImages.forEach(image => {
+            image.addEventListener('click', function() {
+                const imageSrc = this.dataset.modalImage;
+                modalExpandedImage.src = imageSrc;
+                imageModalOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent body scroll
+            });
+        });
+
+        imageModalCloseButton.addEventListener('click', function() {
+            imageModalOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Re-enable body scroll
+        });
+
+        imageModalOverlay.addEventListener('click', function(event) {
+            if (event.target === imageModalOverlay) { // Clicked outside content
+                imageModalOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        // === END IMAGE MODAL SCRIPT ===
+
+
+        // Initial pulse animation on the first feature info button (optional)
+        const firstInfoButton = document.querySelector('.feature-info-button');
+        if (firstInfoButton) {
+            setTimeout(() => {
+                firstInfoButton.querySelector('.pulse').classList.remove('pulse'); // Stop pulsing after a delay
+            }, 3000); // Stop pulse after 3 seconds (adjust as needed)
+        }
+    });
+</script>
+
 </body>
 </html>

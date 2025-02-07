@@ -1,0 +1,1010 @@
+:root {
+    --primary: #212938;
+    --secondary: #3e4e6e;
+    --accent: #0d1617;
+    --primary-text: #2f3a4f;
+    --secondary-text: #3e4e6e;
+    --tertiary-text: #607d8b;
+    --primary-background: #ffffff;
+    --secondary-background: #f5f5f5;
+    --error: #F44336;
+
+    --dark: var(--primary);
+    --light: var(--primary-background);
+    --gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    --background-light: var(--primary-background);
+    --text-muted: var(--tertiary-text);
+    --feature-bg: var(--light);
+    --feature-shadow: rgba(var(--primary-rgb), 0.08);
+    --example-bg: var(--secondary-background);
+    --example-card-bg: var(--light);
+    --example-card-shadow: rgba(var(--primary-rgb), 0.05);
+    --table-header-bg: var(--primary);
+    --table-row-even-bg: #f8f8f8;
+    --accent-light: rgba(var(--accent-rgb), 0.15);
+
+
+    .hero-logo {
+        width: auto; /* Or specify a fixed width if needed, e.g., 200px */
+        height: auto; /* Or specify a fixed height if needed, e.g., 80px */
+        max-width: 250px; /* Example: Limit maximum width of logo */
+        max-height: 150px; /* Example: Limit maximum height of logo */
+        display: block; /* Ensure it behaves as a block element */
+        margin-bottom: 1rem; /* Keep some bottom margin for spacing */
+        /* Remove or do not include border-radius to keep it rectangular */
+        /* border-radius: 0;  You can explicitly set it to 0 if you want to be very clear */
+
+        /* You can add other styling here as needed, e.g., */
+        /* border: none; */
+        /* box-shadow: none; */
+    }
+
+
+    /* --- RGB Values for Shadows --- */
+    --primary-rgb: 33, 41, 56;
+    --accent-rgb: 13, 22, 23;
+
+    /* --- Modal Specific Colors --- */
+    --modal-overlay-bg: rgba(0, 0, 0, 0.5); /* Overlay background */
+    --modal-bg: var(--light);              /* Modal background is light */
+    --modal-shadow: rgba(var(--primary-rgb), 0.2); /* Modal shadow */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--background-light);
+    color: var(--dark);
+    line-height: 1.7;
+}
+
+/* --- Hero Section (Shapes & Colors Updated) --- */
+.hero-section { /* ... Hero Section Styles - No Changes ... */
+    background: rgba(255, 255, 255, 0.9);
+    padding: 6rem 2rem;
+    position: relative;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    overflow: hidden;
+}
+
+.hero-section::before { /* ... Hero Section Shape - No Changes ... */
+    content: '';
+    position: absolute;
+    top: -150px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background-color: var(--accent-light);
+    border-radius: 50%;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.hero-grid { /* ... Hero Grid - No Changes ... */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-video-area { /* ... Hero Video Area - No Changes ... */
+    position: relative;
+}
+
+.hero-video-area::after { /* ... Hero Video Area Shape - No Changes ... */
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 20px;
+    width: 80px;
+    height: 80px;
+    background-color: var(--accent); /* Shape color updated to accent */
+    border-radius: 1rem;
+    opacity: 0.15;
+    z-index: -1;
+}
+
+.hero-video-title { /* ... Hero Video Title - No Changes ... */
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--primary-text); /* Title color updated to primary-text */
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.hero-video-container { /* ... Hero Video Container - No Changes ... */
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.hero-video { /* ... Hero Video - No Changes ... */
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16/9;
+}
+
+.hero-video-buttons { /* ... Hero Video Buttons - No Changes ... */
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start;
+    margin-top: 1.5rem;
+}
+
+.hero-video-button { /* ... Hero Video Button - No Changes ... */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.hero-video-button.youtube { /* ... Hero Video YouTube Button - No Changes ... */
+    background-color: #e02424;
+    color: white;
+}
+
+.hero-video-button.youtube:hover { /* ... Hero Video YouTube Button Hover - No Changes ... */
+    background-color: #c71e1e;
+}
+
+.hero-video-button.docs { /* ... Hero Video Docs Button - No Changes ... */
+    background-color: var(--light);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.hero-video-button.docs:hover { /* ... Hero Video Docs Button Hover - No Changes ... */
+    background-color: #f0f0f0;
+}
+
+
+.hero-profile-content { /* ... Hero Profile Content - No Changes ... */
+    text-align: left;
+}
+
+.hero-image { /* ... Hero Image - No Changes ... */
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid var(--background-light);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    float: left;
+    margin-right: 1.5rem;
+}
+
+.hero-quote { /* ... Hero Quote - No Changes ... */
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--secondary-text); /* Quote color updated to secondary-text */
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.hero-name-title { /* ... Hero Name Title - No Changes ... */
+    overflow: hidden;
+}
+
+.hero-name { /* ... Hero Name - No Changes ... */
+    font-weight: 600;
+    color: var(--primary-text); /* Name color updated to primary-text */
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.hero-title { /* ... Hero Title - No Changes ... */
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-top: 0;
+}
+
+/* --- Intro Section (Colors Updated) --- */
+.intro-section { /* ... Intro Section Styles - No Changes ... */
+    padding: 4rem 2rem;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.intro-title { /* ... Intro Title - No Changes ... */
+    font-size: 2.8rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 1rem;
+}
+
+.intro-description { /* ... Intro Description - No Changes ... */
+    color: var(--secondary-text); /* Description color updated to secondary-text */
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+
+/* --- CTA Button Section (Colors Updated) --- */
+.cta-section { /* ... CTA Section Styles - No Changes ... */
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.cta-button { /* ... CTA Button - No Changes ... */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.4rem 3rem;
+    background: var(--gradient);
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3); /* Keep shadow as is or adjust to new color scheme */
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+}
+
+.cta-button:hover { /* ... CTA Button Hover - No Changes ... */
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4); /* Keep hover shadow or adjust */
+}
+
+.operator-line { /* ... Operator Line - No Changes ... */
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    max-width: 200px;
+}
+
+.social-icons { /* ... Social Icons - No Changes ... */
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-top: 1rem;
+}
+
+.social-icon-link { /* ... Social Icon Link - No Changes ... */
+    color: var(--secondary-text); /* Social icon color updated to secondary-text */
+    font-size: 1.8rem;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.social-icon-link:hover { /* ... Social Icon Link Hover - No Changes ... */
+    color: var(--accent);
+    transform: scale(1.1);
+}
+
+
+/* --- Features Section (Buttons, Colors Updated) --- */
+.features-section { /* ... Features Section Styles - No Changes ... */
+    padding: 6rem 2rem;
+    background-color: var(--secondary-background); /* Background color updated to secondary-background */
+    position: relative;
+    overflow: hidden;
+}
+
+.features-section::before { /* ... Features Section Shape - No Changes ... */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: var(--accent-light);
+    opacity: 0.1;
+    transform: skewY(-3deg);
+    transform-origin: top left;
+}
+
+
+.features-grid { /* ... Features Grid - No Changes ... */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.feature-card { /* ... Feature Card - No Changes ... */
+    background: var(--feature-bg);
+    border-radius: 2rem;
+    padding: 2.5rem;
+    box-shadow: 0 8px 25px var(--feature-shadow);
+    border: 1px solid rgba(var(--primary-rgb), 0.05); /* Border color updated to primary */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex; /* Flexbox for vertical alignment */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.feature-card:hover { /* ... Feature Card Hover - No Changes ... */
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+}
+
+.feature-card-icon { /* ... Feature Card Icon - No Changes ... */
+    width: 80px;
+    height: 80px;
+    background: var(--gradient);
+    border-radius: 2rem;
+    margin: 0 auto 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2.2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.feature-text-content { /* ... Feature Text Content - No Changes ... */
+    text-align: center;
+}
+
+
+.feature-card h3 { /* ... Feature Card Title - No Changes ... */
+    font-size: 1.3rem;
+    margin-bottom: 0.7rem;
+    color: var(--primary-text); /* Feature title color updated to primary-text */
+    margin-top: 0;
+    font-weight: 600;
+}
+
+.feature-card p { /* ... Feature Card Description - No Changes ... */
+    color: var(--secondary-text); /* Feature description color updated to secondary-text */
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem; /* Add some space below text */
+}
+
+.feature-info-button { /* ... Feature Info Button - No Changes ... */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.5rem;
+    border-radius: 50px;
+    background-color: var(--accent); /* Accent color for button */
+    color: var(--light);
+    border: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.feature-info-button:hover { /* ... Feature Info Button Hover - No Changes ... */
+    background-color: rgba(var(--accent-rgb), 0.8); /* Darken on hover */
+}
+
+.feature-info-button::after { /* ... Feature Info Button Arrow - No Changes ... */
+    content: '\2192'; /* Unicode right arrow */
+    margin-left: 0.5rem;
+    display: inline-block;
+}
+
+
+.feature-buttons { /* ... Feature Buttons Container - No Changes ... */
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem; /* Keep margin */
+    display: none; /* Hide YouTube/Docs buttons for now */
+}
+
+.feature-button { /* ... Feature Button - No Changes ... */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.3rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.feature-button.youtube { /* ... YouTube Button Style - No Changes ... */ }
+.feature-button.youtube:hover { /* ... YouTube Button Hover - No Changes ... */ }
+.feature-button.docs { /* ... Docs Button Style - No Changes ... */ }
+.feature-button.docs:hover { /* ... Docs Button Hover - No Changes ... */ }
+
+
+/* --- Modal Styles --- */
+.feature-modal-overlay { /* ... Modal Overlay - No Changes ... */
+    display: none; /* Initially hidden */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Enable scroll if needed */
+    background-color: var(--modal-overlay-bg); /* Black w/opacity */
+    justify-content: center; /* Center content horizontally */
+    align-items: center;     /* Center content vertically */
+    padding: 2rem;          /* Padding around modal content */
+}
+
+.feature-modal-overlay.active { /* ... Modal Overlay Active - No Changes ... */
+    display: flex; /* Show modal when active class is added */
+}
+
+
+.feature-modal-content { /* ... Modal Content - No Changes ... */
+    background-color: var(--modal-bg);
+    margin: auto;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 30px var(--modal-shadow);
+    position: relative; /* For close button positioning */
+    max-width: 800px;      /* Max width of modal content */
+    width: 100%;          /* Take full width of parent */
+    max-height: 90vh;      /* Max height relative to viewport height */
+    overflow-y: auto;      /* Enable vertical scroll inside modal if content is long */
+}
+
+.modal-close-button { /* ... Modal Close Button - No Changes ... */
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--secondary-text);
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.modal-close-button:hover { /* ... Modal Close Button Hover - No Changes ... */
+    color: var(--primary-text);
+}
+
+.modal-feature-image { /* ... Modal Feature Image - No Changes ... */
+    max-width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.modal-feature-title { /* ... Modal Feature Title - No Changes ... */
+    font-size: 2rem;
+    color: var(--primary-text);
+    margin-bottom: 1rem;
+    margin-top: 0;
+}
+
+.modal-feature-description { /* ... Modal Feature Description - No Changes ... */
+    color: var(--secondary-text);
+    line-height: 1.7;
+}
+
+/* === CLICKABLE IMAGE STYLE - ADDED CSS === */
+.clickable-image {
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.clickable-image:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+/* === END CLICKABLE IMAGE STYLE === */
+
+
+/* === IMAGE MODAL STYLES - ADDED CSS === */
+.image-modal-overlay {
+    display: none; /* Initially hidden */
+    position: fixed;
+    z-index: 1010; /* Higher z-index than feature modals */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8); /* Darker overlay for image modal */
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.image-modal-overlay.active {
+    display: flex;
+}
+
+.image-modal-content {
+    position: relative;
+    background-color: transparent; /* Make modal content background transparent */
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 90%; /* Max width of image modal content */
+    max-height: 90%; /* Max height of image modal content */
+}
+
+.image-modal-image {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3); /* Shadow for expanded image */
+}
+
+.image-modal-close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 2rem; /* Larger close button for image modal */
+    color: white; /* White close button for dark overlay */
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+    opacity: 0.8; /* Slightly transparent close button */
+}
+
+.image-modal-close-button:hover {
+    color: white; /* Keep white on hover */
+    opacity: 1;
+}
+/* === END IMAGE MODAL STYLES === */
+
+
+/* --- Examples Section (Colors Updated) --- */
+.examples-section {
+    background: linear-gradient(135deg, var(--secondary-background) 0%, #e0e0e0 100%); /* Soft gradient background */
+    padding: 6rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.examples-section::before { /* Added shape to Examples Section */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px; /* Adjust height as needed */
+    background: var(--accent-light); /* Use accent light color for shape */
+    opacity: 0.15;
+    transform: skewY(-2deg);
+    transform-origin: top left;
+}
+
+
+.examples-section-title {
+    font-size: 2.4rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+    margin-bottom: 0.8rem; /* Slightly reduced bottom margin */
+    position: relative; /* Ensure text is above the before element */
+    z-index: 1;
+}
+
+.examples-section-subtitle {
+    margin-bottom: 2.5rem; /* Slightly reduced bottom margin */
+    color: var(--text-muted);
+    max-width: 750px; /* Adjusted max width */
+    margin-left: auto;
+    margin-right: auto;
+    position: relative; /* Ensure text is above the before element */
+    z-index: 1;
+}
+
+
+.examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Slightly wider cards */
+    gap: 2.5rem; /* Slightly increased gap */
+    max-width: 1200px;
+    margin: 2.5rem auto; /* Slightly increased margin */
+    position: relative; /* Ensure grid is above the before element */
+    z-index: 1;
+}
+
+.example-card {
+    background-color: var(--example-card-bg); /* Keep card background light */
+    border-radius: 1.75rem; /* Slightly more rounded cards */
+    padding: 2.2rem; /* Slightly reduced padding */
+    box-shadow: 0 6px 18px var(--example-card-shadow); /* Slightly stronger shadow */
+    border: 1px solid rgba(var(--primary-rgb), 0.04); /* Slightly darker border */
+    transition: transform 0.3s ease-in-out;
+    text-align: left; /* Align text to left within cards */
+}
+
+
+.example-card:hover {
+    transform: translateY(-5px); /* Slightly more pronounced hover effect */
+    box-shadow: 0 8px 22px rgba(0,0,0,0.09); /* Slightly stronger hover shadow */
+}
+
+.example-logo {
+    width: 90px; /* Slightly smaller logo */
+    height: auto;
+    max-height: 70px; /* Slightly smaller max logo height */
+    object-fit: contain;
+    margin-bottom: 1rem;
+    opacity: 0.9; /* Slightly reduced logo opacity */
+    filter: grayscale(5%); /* Very subtle grayscale effect */
+}
+
+.example-message {
+    font-size: 1rem;
+    color: var(--primary-text); /* Example message color updated to primary-text */
+    line-height: 1.6;
+}
+
+/* Responsive adjustments for Examples Section */
+@media (max-width: 768px) {
+    .examples-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .examples-section-title {
+        font-size: 2.2rem;
+    }
+
+    .examples-section-subtitle {
+        font-size: 1rem; /* Adjust subtitle font size for smaller screens */
+    }
+
+    .examples-grid {
+        grid-template-columns: 1fr; /* Stack cards on smaller screens */
+        gap: 2rem; /* Adjust gap on smaller screens */
+        margin: 2rem auto; /* Adjust margin on smaller screens */
+    }
+
+    .example-card {
+        padding: 1.8rem; /* Adjust card padding on smaller screens */
+    }
+
+    .example-logo {
+        width: 80px; /* Adjust logo size on smaller screens */
+        max-height: 60px; /* Adjust max logo height on smaller screens */
+    }
+
+    .example-message {
+        font-size: 0.95rem; /* Adjust message font size on smaller screens */
+    }
+}
+
+/* === END EXAMPLES SECTION REDESIGN === */
+
+
+/* --- Contact Section (Colors Updated) --- */
+.contact-section { /* ... Contact Section Styles - No Changes ... */
+    padding: 6rem 2rem;
+    text-align: center;
+    background-color: var(--background-light);
+}
+
+.contact-content { /* ... Contact Content - No Changes ... */
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contact-title { /* ... Contact Title - No Changes ... */
+    font-size: 2.4rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.contact-text { /* ... Contact Text - No Changes ... */
+    color: var(--secondary-text); /* Contact text color updated to secondary-text */
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.contact-email-link { /* ... Contact Email Link - No Changes ... */
+    display: inline-block;
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.contact-email-link:hover { /* ... Contact Email Link Hover - No Changes ... */
+    color: var(--secondary);
+    text-decoration: underline;
+}
+
+
+/* --- Comparison Table Section (Colors Updated) --- */
+.comparison-section {
+    padding: 6rem 2rem;
+    background-color: var(--secondary-background); /* Keep secondary background */
+    text-align: center;
+}
+
+.comparison-section h2 {
+    font-size: 2.4rem;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.comparison-section p.hero-subtitle {
+    margin-bottom: 2.5rem; /* Slightly reduced subtitle margin */
+    color: var(--text-muted);
+    max-width: 750px; /* Adjusted subtitle max width */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.comparison-table-container {
+    max-width: 950px; /* Slightly wider table container */
+    margin: 2.5rem auto; /* Slightly increased margin */
+    overflow-x: auto;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse; /* Use collapse for cleaner borders */
+    border-spacing: 0;
+    margin-top: 1rem;
+    background-color: var(--light);
+    box-shadow: 0 10px 25px rgba(var(--primary-rgb), 0.09); /* Slightly stronger shadow */
+    border-radius: 1.25rem; /* Slightly less rounded table */
+    overflow: hidden;
+    font-size: 0.95rem; /* Slightly reduced font size */
+}
+
+.comparison-table thead {
+    background-color: var(--primary); /* Keep primary header background */
+    color: var(--light);
+    border-radius: 1.25rem 1.25rem 0 0; /* Adjust header border radius */
+}
+
+.comparison-table th, .comparison-table td {
+    padding: 1.2rem 1.5rem; /* Reduced cell padding */
+    text-align: left;
+    border-bottom: 1px solid rgba(var(--primary-rgb), 0.05); /* Slightly lighter border */
+    font-weight: 500;
+}
+
+.comparison-table th {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em; /* Slightly reduced letter spacing */
+    font-size: 0.9rem; /* Slightly reduced header font size */
+}
+
+.comparison-table tbody tr:last-child td {
+    border-bottom: none; /* Remove border for last row */
+}
+
+.comparison-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Slightly lighter even row background */
+}
+
+
+.comparison-table td:nth-child(2),
+.comparison-table th:nth-child(2) {
+    font-weight: 600;
+    color: var(--accent); /* Keep accent color for TSV.coach column */
+}
+
+.comparison-table .feature-check {
+    text-align: center;
+    font-size: 1.1rem; /* Slightly reduced check icon size */
+}
+
+
+/* === SECTION SPACING REDUCTION - UPDATED CSS === */
+.hero-section,
+.intro-section,
+.cta-section,
+.features-section,
+.examples-section,
+.contact-section,
+.comparison-section,
+.link-bar-section {
+    padding-top: 4rem; /* Reduced top padding */
+    padding-bottom: 4rem; /* Reduced bottom padding */
+}
+
+@media (max-width: 768px) {
+    .hero-section,
+    .intro-section,
+    .cta-section,
+    .features-section,
+    .examples-section,
+    .contact-section,
+    .comparison-section,
+    .link-bar-section {
+        padding-top: 3rem; /* Further reduced top padding for smaller screens */
+        padding-bottom: 3rem; /* Further reduced bottom padding for smaller screens */
+    }
+}
+/* === END SECTION SPACING REDUCTION === */
+
+
+/* --- Link Bar Section (Footer - Colors Updated) --- */
+.link-bar-section { /* ... Link Bar Section Styles - No Changes ... */
+    background-color: var(--dark); /* Footer background is primary */
+    color: var(--light);           /* Footer text is light */
+    padding: 2rem 2rem;
+    text-align: center;
+}
+
+.link-bar-links { /* ... Link Bar Links - No Changes ... */
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.link-bar-link { /* ... Link Bar Link - No Changes ... */
+    color: var(--light);           /* Link color is light */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.link-bar-link:hover { /* ... Link Bar Link Hover - No Changes ... */
+    color: var(--accent);
+}
+
+
+/* --- Responsive Styles --- */
+@media (max-width: 992px) { /* ... Responsive Styles for 992px and below - No Changes ... */
+    .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-profile-content {
+        text-align: center;
+    }
+
+    .hero-image {
+        float: none;
+        margin-right: 0;
+        margin-bottom: 1.5rem;
+    }
+
+    .feature-card {
+        grid-template-columns: 1fr; /* Stack feature card columns */
+        text-align: center;         /* Center text in stacked cards */
+        flex-direction: column;     /* Ensure vertical flex layout on mobile */
+        align-items: center;         /* Center items in flex layout */
+    }
+
+    .feature-text-content {
+        padding-right: 0;
+    }
+
+    .feature-card-icon {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+
+@media (max-width: 768px) { /* ... Responsive Styles for 768px and below - No Changes ... */
+    .hero-section,
+    .intro-section,
+    .cta-section,
+    .features-section,
+    .examples-section,
+    .contact-section,
+    .comparison-section,
+    .link-bar-section {
+        padding: 4rem 1.5rem;
+    }
+
+    .intro-title {
+        font-size: 2.4rem;
+    }
+
+    .hero-quote {
+        font-size: 1.3rem;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .cta-button {
+        padding: 1.2rem 2.5rem;
+        font-size: 1.1rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .feature-card {
+        padding: 2rem;
+    }
+
+    .examples-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonial-text {
+        font-size: 1.4rem;
+    }
+
+    .link-bar-links {
+        gap: 2rem;
+    }
+
+    .social-icons {
+        gap: 1.5rem;
+    }
+
+    .social-icon-link {
+        font-size: 1.5rem;
+    }
+
+    .comparison-table {
+        font-size: 0.9rem;
+    }
+}
+
+@keyframes float { /* ... Float Animation - No Changes ... */
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.floating { /* ... Floating Class - No Changes ... */
+    animation: float 6s ease-in-out infinite;
+}
+@keyframes pulse-arrow { /* ... Pulse Arrow Animation - No Changes ... */
+    0%, 100% { transform: translateX(0); opacity: 1; }
+    50%  { transform: translateX(5px); opacity: 0.6; }
+}
+
+.pulse { /* ... Pulse Class - No Changes ... */
+    animation: pulse-arrow 1.5s ease-out infinite;
+}
