@@ -1,3 +1,10 @@
 services:
   web:
     build: .
+    container_name: about-tsv-coach
+    restart: unless-stopped
+    networks: 
+      - proxy-network
+networks:
+  proxy-network:
+    external: true
